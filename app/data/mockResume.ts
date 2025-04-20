@@ -9,7 +9,6 @@ export const mockResumeData: ResumeData = {
 	contactInfo: [
 		{ id: '1', label: 'Email', value: 'harry.potter@hogwarts.edu' },
 		{ id: '2', label: 'Phone', value: '+44 20 7123 4567' },
-		{ id: '3', label: 'Location', value: 'London, United Kingdom' },
 		{ id: '4', label: 'LinkedIn', value: 'linkedin.com/in/harrypotter' },
 	],
 	summary:

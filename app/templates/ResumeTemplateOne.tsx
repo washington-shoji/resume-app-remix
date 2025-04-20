@@ -13,7 +13,7 @@ export default function ResumeTemplateOne({ data }: Props) {
 					<span className='font-bold'>{data.personalInfo.firstName}</span>{' '}
 					<span>{data.personalInfo.lastName}</span>
 				</h1>
-				<p className='text-gray-600 uppercase tracking-wider text-sm mt-2'>
+				<p className='text-gray-600 uppercase tracking-wider text-sm mt-2 font-semibold'>
 					{data.personalInfo.professionalTitle}
 				</p>
 
