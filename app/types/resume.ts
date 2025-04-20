@@ -1,10 +1,7 @@
 export interface ResumeData {
-	personalInfo: {
-		firstName: string;
-		lastName: string;
-		professionalTitle: string;
-	};
+	personalInfo: Record<string, string>;
 	contactInfo: Array<{ id: string; label: string; value: string }>;
+	summary: string;
 	skills: Array<{ id: string; name: string; level: string }>;
 	workExperience: Array<{
 		id: string;
@@ -23,5 +20,4 @@ export interface ResumeData {
 		endDate: string;
 		description: string;
 	}>;
-	summary: string;
 }
