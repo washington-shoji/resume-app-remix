@@ -41,7 +41,7 @@ export default function ResumeTemplateOne({ data }: Props) {
 				<div className='flex flex-wrap gap-4'>
 					{data.skills.map((skill) => (
 						<div key={skill.id} className='flex items-center gap-2'>
-							<span className='font-medium'>{skill.name}</span>
+							<span className='font-medium text-sm'>{skill.name}</span>
 							<span className='text-sm text-gray-500'>• {skill.level}</span>
 						</div>
 					))}
@@ -58,7 +58,9 @@ export default function ResumeTemplateOne({ data }: Props) {
 						<div key={work.id} className='flex justify-between items-start'>
 							<div className='flex-1'>
 								<h3 className='font-medium'>{work.position}</h3>
-								<p className='text-gray-600 text-sm mt-1'>{work.company}</p>
+								<p className='text-gray-600 text-sm mt-1 font-semibold'>
+									{work.company}
+								</p>
 								<p className='text-gray-600 text-sm mt-2 max-w-md'>
 									{work.description}
 								</p>
@@ -81,7 +83,9 @@ export default function ResumeTemplateOne({ data }: Props) {
 						<div key={edu.id} className='flex justify-between items-start'>
 							<div className='flex-1'>
 								<h3 className='font-medium'>{edu.degree}</h3>
-								<p className='text-gray-600 text-sm mt-1'>{edu.institution}</p>
+								<p className='text-gray-600 text-sm mt-1 font-semibold'>
+									{edu.institution}
+								</p>
 								<p className='text-gray-600 text-sm'>{edu.field}</p>
 								<p className='text-gray-600 text-sm mt-2 max-w-md'>
 									{edu.description}

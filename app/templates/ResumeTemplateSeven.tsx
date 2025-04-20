@@ -10,11 +10,6 @@ export default function ResumeTemplateSeven({ data }: Props) {
 			{/* Header Section with Background */}
 			<div className='bg-[#1a1f2e] text-white p-8 pb-16'>
 				<div className='max-w-5xl mx-auto flex gap-8 items-center'>
-					{/* Profile Image - Note: This would need to be added to the data structure */}
-					<div className='w-32 h-32 rounded-lg overflow-hidden bg-gray-700'>
-						{/* Placeholder for profile image */}
-					</div>
-
 					<div>
 						<h1 className='text-4xl font-light tracking-wide text-[#3dd2f3]'>
 							{data.personalInfo.firstName} {data.personalInfo.lastName}
@@ -96,7 +91,7 @@ export default function ResumeTemplateSeven({ data }: Props) {
 													{work.startDate} - {work.endDate}
 												</span>
 											</div>
-											<p className='text-gray-600 text-sm mt-1'>
+											<p className='text-gray-600 text-sm mt-1 font-semibold'>
 												{work.company}
 											</p>
 											<p className='text-gray-600 text-sm mt-2'>
@@ -122,7 +117,7 @@ export default function ResumeTemplateSeven({ data }: Props) {
 													{edu.startDate} - {edu.endDate}
 												</span>
 											</div>
-											<p className='text-gray-600 text-sm mt-1'>
+											<p className='text-gray-600 text-sm mt-1 font-semibold'>
 												{edu.institution}
 											</p>
 											<p className='text-gray-600 text-sm'>{edu.field}</p>

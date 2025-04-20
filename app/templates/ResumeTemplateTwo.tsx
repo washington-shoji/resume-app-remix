@@ -5,9 +5,6 @@ interface Props {
 }
 
 export default function ResumeTemplateTwo({ data }: Props) {
-	// Get initials for the circle logo
-	const initials = `${data.personalInfo.firstName[0]}|${data.personalInfo.lastName[0]}`;
-
 	return (
 		<div className='max-w-[800px] mx-auto p-8 font-light bg-white dark:bg-gray-900'>
 			<div className='grid grid-cols-1 md:grid-cols-12 gap-8'>
@@ -66,15 +63,6 @@ export default function ResumeTemplateTwo({ data }: Props) {
 
 				{/* Right Column - Sidebar */}
 				<div className='md:col-span-5 space-y-8'>
-					{/* Circle Logo */}
-					<div className='flex justify-center mb-8'>
-						<div className='w-24 h-24 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center'>
-							<span className='text-xl text-gray-600 dark:text-gray-300'>
-								{initials}
-							</span>
-						</div>
-					</div>
-
 					{/* Education */}
 					<section>
 						<h2 className='text-sm tracking-wider text-gray-600 dark:text-gray-400 uppercase border-b border-gray-300 dark:border-gray-700 pb-1 mb-4'>

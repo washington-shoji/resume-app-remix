@@ -5,9 +5,6 @@ interface Props {
 }
 
 export default function ResumeTemplateFour({ data }: Props) {
-	// Create personal brand logo from initials
-	const initials = `${data.personalInfo.firstName[0]}${data.personalInfo.lastName[0]}`;
-
 	return (
 		<div className='max-w-[800px] mx-auto bg-white dark:bg-gray-900'>
 			{/* Header with Name and Logo */}
@@ -20,30 +17,11 @@ export default function ResumeTemplateFour({ data }: Props) {
 						{data.personalInfo.professionalTitle}
 					</p>
 				</div>
-				<div className='flex justify-end'>
-					<div className='w-16 h-16 flex items-center justify-center'>
-						<div className='text-2xl font-light tracking-widest text-gray-800 dark:text-gray-100'>
-							{initials}
-						</div>
-					</div>
-				</div>
 			</header>
 
 			<div className='grid grid-cols-1 md:grid-cols-12 gap-8 p-8'>
 				{/* Left Column */}
 				<div className='md:col-span-4 space-y-8'>
-					{/* Profile Photo */}
-					<div className='mb-8'>
-						<div className='w-48 h-48 rounded-full overflow-hidden mx-auto bg-gray-200 dark:bg-gray-700'>
-							{/* If there's a profile picture, uncomment and use this
-              <img
-                src={data.personalInfo.profilePicture}
-                alt={`${data.personalInfo.firstName} ${data.personalInfo.lastName}`}
-                className="w-full h-full object-cover"
-              /> */}
-						</div>
-					</div>
-
 					{/* Contact Info */}
 					<section>
 						<h2 className='text-sm font-medium uppercase mb-4 text-gray-800 dark:text-gray-200'>
@@ -181,7 +159,7 @@ export default function ResumeTemplateFour({ data }: Props) {
 											{work.startDate} - {work.endDate}
 										</span>
 									</div>
-									<p className='text-gray-600 dark:text-gray-400 text-sm mb-2'>
+									<p className='text-gray-600 dark:text-gray-400 text-sm mb-2 font-semibold'>
 										{work.company}
 									</p>
 									<p className='text-gray-600 dark:text-gray-400 text-sm'>

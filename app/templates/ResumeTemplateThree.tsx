@@ -11,20 +11,9 @@ export default function ResumeTemplateThree({ data }: Props) {
 				{/* Left Sidebar - Dark */}
 				<div className='md:col-span-4 bg-gray-800 dark:bg-gray-900 text-white p-8 min-h-screen'>
 					{/* Profile Section */}
-					<div className='mb-12 text-center'>
-						<div className='w-40 h-40 rounded-full mx-auto mb-6 overflow-hidden bg-cyan-600'>
-							{/* If there's a profile picture, uncomment and use this
-							<img
-								src={data.personalInfo.profilePicture}
-								alt={`${data.personalInfo.firstName} ${data.personalInfo.lastName}`}
-								className="w-full h-full object-cover"
-							/> */}
-							<div className='w-full h-full bg-cyan-600' />
-						</div>
+					<div className='mb-12'>
 						<h1 className='text-2xl font-light mb-1 text-cyan-400'>
-							{data.personalInfo.firstName}
-							<br />
-							{data.personalInfo.lastName}
+							{data.personalInfo.firstName} {data.personalInfo.lastName}
 						</h1>
 						<p className='text-sm text-gray-300'>
 							{data.personalInfo.professionalTitle}
@@ -135,7 +124,7 @@ export default function ResumeTemplateThree({ data }: Props) {
 							<span className='mr-2'>
 								<SkillsIcon />
 							</span>
-							SOFT SKILLS
+							SKILLS
 						</h2>
 						<div className='grid grid-cols-2 gap-4'>
 							{data.skills.map((skill) => (

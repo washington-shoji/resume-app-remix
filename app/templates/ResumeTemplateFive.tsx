@@ -145,7 +145,7 @@ export default function ResumeTemplateFive({ data }: Props) {
 									<div className='uppercase text-sm text-gray-500 dark:text-gray-400 mb-1'>
 										{work.company}
 									</div>
-									<div className='text-sm text-gray-400 dark:text-gray-500 mb-2'>
+									<div className='text-sm text-gray-400 dark:text-gray-500 mb-2 font-semibold'>
 										{work.position}
 									</div>
 									<div className='text-sm text-gray-400 dark:text-gray-500 mb-2'>

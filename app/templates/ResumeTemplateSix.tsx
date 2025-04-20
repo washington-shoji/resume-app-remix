@@ -24,14 +24,14 @@ export default function ResumeTemplateSix({ data }: Props) {
 
 				{/* About Section */}
 				<section className='mb-8'>
-					<div className='text-gray-400'>About Me {'{'}</div>
+					<div className='text-gray-400 text-lg'>About Me {'{'}</div>
 					<div className='ml-4 mb-4'>{data.summary}</div>
 					<div className='text-gray-400'>{'}'}</div>
 				</section>
 
 				{/* Education Section */}
 				<section className='mb-8'>
-					<div className='text-gray-400'>Education {'{'}</div>
+					<div className='text-gray-400 text-lg'>Education {'{'}</div>
 					<div className='ml-4'>
 						{data.education.map((edu) => (
 							<div key={edu.id} className='mb-4'>
@@ -44,16 +44,16 @@ export default function ResumeTemplateSix({ data }: Props) {
 							</div>
 						))}
 					</div>
-					<div className='text-gray-400'>{'}'}</div>
+					<div className='text-gray-400 text-lg'>{'}'}</div>
 				</section>
 
 				{/* Work Experience Section */}
 				<section className='mb-8'>
-					<div className='text-gray-400'>Work Experience {'{'}</div>
+					<div className='text-gray-400 text-lg'>Work Experience {'{'}</div>
 					<div className='ml-4'>
 						{data.workExperience.map((work) => (
 							<div key={work.id} className='mb-6'>
-								<div className='text-gray-400'>
+								<div className='text-gray-400 text-lg'>
 									Job Title ({work.startDate}-{work.endDate}) {'{'}
 								</div>
 								<div className='ml-4'>
@@ -71,7 +71,7 @@ export default function ResumeTemplateSix({ data }: Props) {
 
 				{/* Skills Section */}
 				<section className='mb-8'>
-					<div className='text-gray-400'>Additional Skills {'{'}</div>
+					<div className='text-gray-400 text-lg'>Additional Skills {'{'}</div>
 					<div className='ml-4'>
 						{data.skills.map((skill) => (
 							<div key={skill.id}>
@@ -82,7 +82,7 @@ export default function ResumeTemplateSix({ data }: Props) {
 					<div className='text-gray-400'>{'}'}</div>
 				</section>
 
-				<div className='text-gray-400'>{'}'};</div>
+				<div className='text-3xl text-gray-400'>{'}'};</div>
 			</div>
 		</div>
 	);
