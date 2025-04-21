@@ -6,7 +6,8 @@ import SkillsForm from '~/components/SkillsForm';
 import WorkExperienceForm from '~/components/WorkExperienceForm';
 import EducationForm from '~/components/EducationForm';
 import ResumePreview from '~/components/ResumePreview';
-import ExecutiveSummary from '~/components/ExecutiveSummary';
+import ExecutiveSummaryForm from '~/components/ExecutiveSummaryForm';
+import ContactInfoForm from '~/components/ContactInfoForm';
 import { mockResumeData } from '~/data/mockResume';
 
 export default function ResumeBuilder() {
@@ -49,7 +50,14 @@ export default function ResumeBuilder() {
 						}
 					/>
 
-					<ExecutiveSummary
+					<ContactInfoForm
+						contactInfo={resumeData.contactInfo}
+						onChange={(contactInfo) =>
+							setResumeData({ ...resumeData, contactInfo })
+						}
+					/>
+
+					<ExecutiveSummaryForm
 						data={{ summary: resumeData.summary }}
 						onChange={(data) =>
 							setResumeData({ ...resumeData, summary: data.summary })

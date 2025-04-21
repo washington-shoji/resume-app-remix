@@ -7,7 +7,7 @@ interface ExecutiveSummaryFormProps {
 	onChange: (data: ExecutiveSummary) => void;
 }
 
-export default function ExecutiveSummary({
+export default function ExecutiveSummaryForm({
 	data,
 	onChange,
 }: ExecutiveSummaryFormProps) {

@@ -12,6 +12,11 @@ interface ResumeData {
 	personalInfo: {
 		[key: string]: string;
 	};
+	contactInfo: Array<{
+		id: string;
+		label: string;
+		value: string;
+	}>;
 	skills: Array<{
 		id: string;
 		name: string;
@@ -179,15 +184,25 @@ export default function ResumePreview({ data }: ResumePreviewProps) {
 				{/* Personal Information */}
 				<div className='mb-6'>
 					<h3 className='text-2xl font-bold text-gray-900'>
-						{`${data.personalInfo?.firstName + data.personalInfo?.lastName}` ||
-							'Your Name'}
+						<span className='font-bold'>
+							{data.personalInfo?.firstName || 'First Name'}
+						</span>{' '}
+						<span className='font-bold'>
+							{data.personalInfo?.lastName || 'Last Name'}
+						</span>
 					</h3>
-					<p className='text-gray-600'>
-						{data.personalInfo.email || 'email@example.com'}
-					</p>
-					<p className='text-gray-600'>
-						{data.personalInfo.phone || 'Phone Number'}
-					</p>
+					{data.personalInfo.professionalTitle && (
+						<p className='text-gray-600 font-semibold'>
+							{data.personalInfo.professionalTitle}
+						</p>
+					)}
+
+					{/* Contact Info */}
+					{data.contactInfo.map((contact) => (
+						<p key={contact.id} className='text-gray-600'>
+							{contact.value}
+						</p>
+					))}
 				</div>
 
 				{/* Executive Summary */}

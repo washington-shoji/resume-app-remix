@@ -26,7 +26,7 @@ export const mockResumeData: ResumeData = {
 			id: '1',
 			company: 'Ministry of Magic',
 			position: 'Senior Software Architect',
-			startDate: '2020',
+			startDate: '2020-06-01',
 			endDate: 'Present',
 			description:
 				'Lead architect for the modernization of magical tracking systems. Implemented real-time monitoring solutions using React and GraphQL. Reduced system response time by 60% through optimization of spell-tracking algorithms.',
@@ -35,8 +35,8 @@ export const mockResumeData: ResumeData = {
 			id: '2',
 			company: 'Gringotts Wizarding Bank',
 			position: 'Full Stack Developer',
-			startDate: '2018',
-			endDate: '2020',
+			startDate: '2018-06-01',
+			endDate: '2020-06-01',
 			description:
 				'Developed and maintained secure banking applications handling millions of Galleon transactions daily. Implemented biometric authentication using wand signatures. Led a team of 5 developers in the vault security system upgrade project.',
 		},
@@ -44,8 +44,8 @@ export const mockResumeData: ResumeData = {
 			id: '3',
 			company: 'The Daily Prophet',
 			position: 'Frontend Developer',
-			startDate: '2016',
-			endDate: '2018',
+			startDate: '2016-06-01',
+			endDate: '2018-06-01',
 			description:
 				"Rebuilt the news platform's frontend using React, improving reader engagement by 40%. Implemented interactive moving pictures feature using WebGL. Optimized content delivery for both magical and Muggle devices.",
 		},
@@ -56,8 +56,8 @@ export const mockResumeData: ResumeData = {
 			institution: 'Hogwarts School of Software and Wizardry',
 			degree: "Master's Degree",
 			field: 'Computer Science and Magical Engineering',
-			startDate: '2014',
-			endDate: '2016',
+			startDate: '2014-06-01',
+			endDate: '2016-06-01',
 			description:
 				"Specialized in Magical Algorithm Optimization and Defensive Programming. Graduated with honors. Led the development of an AI-powered Marauder's Map as thesis project.",
 		},
@@ -66,8 +66,8 @@ export const mockResumeData: ResumeData = {
 			institution: 'Hogwarts School of Software and Wizardry',
 			degree: "Bachelor's Degree",
 			field: 'Software Engineering',
-			startDate: '2010',
-			endDate: '2014',
+			startDate: '2010-06-01',
+			endDate: '2014-06-01',
 			description:
 				'Core focus on full-stack development, magical data structures, and spell-based programming. Founded the Code Brewing Club. Received Outstanding in all major subjects.',
 		},
