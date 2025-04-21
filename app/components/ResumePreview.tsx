@@ -6,7 +6,6 @@ import {
 	View,
 	StyleSheet,
 } from '@react-pdf/renderer';
-import { useEffect, useState } from 'react';
 import ClientComponentOnly from './ClientComponentOnly';
 
 interface ResumeData {
@@ -160,7 +159,18 @@ export default function ResumePreview({ data }: ResumePreviewProps) {
 						fileName='resume.pdf'
 						className='btn-primary'
 					>
-						{({ loading }) => (loading ? 'Generating PDF...' : 'Download PDF')}
+						{({ loading }) =>
+							loading ? (
+								'Generating PDF...'
+							) : (
+								<button
+									type='submit'
+									className='inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
+								>
+									Download PDF
+								</button>
+							)
+						}
 					</PDFDownloadLink>
 				</ClientComponentOnly>
 			</div>
@@ -169,7 +179,8 @@ export default function ResumePreview({ data }: ResumePreviewProps) {
 				{/* Personal Information */}
 				<div className='mb-6'>
 					<h3 className='text-2xl font-bold text-gray-900'>
-						{data.personalInfo.name || 'Your Name'}
+						{`${data.personalInfo?.firstName + data.personalInfo?.lastName}` ||
+							'Your Name'}
 					</h3>
 					<p className='text-gray-600'>
 						{data.personalInfo.email || 'email@example.com'}

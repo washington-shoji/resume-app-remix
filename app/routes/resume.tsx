@@ -6,10 +6,16 @@ import SkillsForm from '~/components/SkillsForm';
 import WorkExperienceForm from '~/components/WorkExperienceForm';
 import EducationForm from '~/components/EducationForm';
 import ResumePreview from '~/components/ResumePreview';
+import ExecutiveSummary from '~/components/ExecutiveSummary';
 
 export default function ResumeBuilder() {
 	const [resumeData, setResumeData] = useState<ResumeData>({
-		personalInfo: {},
+		personalInfo: {
+			firstName: '',
+			lastName: '',
+			professionalTitle: '',
+		},
+		contactInfo: [],
 		skills: [],
 		workExperience: [],
 		education: [],
@@ -32,12 +38,19 @@ export default function ResumeBuilder() {
 
 	return (
 		<div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
-			<div className='space-y-8'>
+			<div className='space-y-8 bg-white shadow-lg rounded-lg p-8'>
 				<Form onSubmit={handleSubmit} className='space-y-8'>
 					<PersonalInfoForm
 						data={resumeData.personalInfo}
 						onChange={(data) =>
 							setResumeData({ ...resumeData, personalInfo: data })
+						}
+					/>
+
+					<ExecutiveSummary
+						data={{ summary: resumeData.summary }}
+						onChange={(data) =>
+							setResumeData({ ...resumeData, summary: data.summary })
 						}
 					/>
 
@@ -60,29 +73,17 @@ export default function ResumeBuilder() {
 						}
 					/>
 
-					<div>
-						<label
-							htmlFor='executive-summary'
-							className='block text-sm font-medium text-gray-700'
-						>
-							Executive Summary
-						</label>
-						<textarea
-							id='executive-summary'
-							className='form-input mt-1'
-							rows={4}
-							value={resumeData.summary}
-							onChange={(e) =>
-								setResumeData({ ...resumeData, summary: e.target.value })
-							}
-						/>
-					</div>
-
 					<div className='flex justify-end space-x-4'>
-						<button type='button' className='btn-secondary'>
+						<button
+							type='button'
+							className='inline-block bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors'
+						>
 							Preview
 						</button>
-						<button type='submit' className='btn-primary'>
+						<button
+							type='submit'
+							className='inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
+						>
 							Save Resume
 						</button>
 					</div>

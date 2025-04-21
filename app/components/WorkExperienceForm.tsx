@@ -54,7 +54,7 @@ export default function WorkExperienceForm({
 					<button
 						type='button'
 						onClick={handleAddExperience}
-						className='btn-secondary'
+						className='inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
 					>
 						Add Experience
 					</button>
@@ -62,25 +62,67 @@ export default function WorkExperienceForm({
 			</div>
 
 			{experiences.map((experience) => (
-				<div key={experience.id} className='space-y-4 p-4 border rounded-lg'>
-					<div className='flex justify-between items-start'>
-						<div className='space-y-4 flex-1'>
+				<div key={experience.id} className='flex flex-col gap-4'>
+					<div className='space-y-4 flex-1'>
+						<div>
+							<label
+								htmlFor={`company-${experience.id}`}
+								className='block text-sm font-medium text-gray-700'
+							>
+								Company
+							</label>
+							<input
+								id={`company-${experience.id}`}
+								type='text'
+								className='border border-gray-300 rounded-md p-2 w-full bg-white'
+								value={experience.company}
+								onChange={(e) =>
+									handleExperienceChange(
+										experience.id,
+										'company',
+										e.target.value
+									)
+								}
+							/>
+						</div>
+						<div>
+							<label
+								htmlFor={`position-${experience.id}`}
+								className='block text-sm font-medium text-gray-700'
+							>
+								Position
+							</label>
+							<input
+								id={`position-${experience.id}`}
+								type='text'
+								className='border border-gray-300 rounded-md p-2 w-full bg-white'
+								value={experience.position}
+								onChange={(e) =>
+									handleExperienceChange(
+										experience.id,
+										'position',
+										e.target.value
+									)
+								}
+							/>
+						</div>
+						<div className='grid grid-cols-2 gap-4'>
 							<div>
 								<label
-									htmlFor={`company-${experience.id}`}
+									htmlFor={`startDate-${experience.id}`}
 									className='block text-sm font-medium text-gray-700'
 								>
-									Company
+									Start Date
 								</label>
 								<input
-									id={`company-${experience.id}`}
-									type='text'
-									className='form-input'
-									value={experience.company}
+									id={`startDate-${experience.id}`}
+									type='date'
+									className='border border-gray-300 rounded-md p-2 w-full bg-white'
+									value={experience.startDate}
 									onChange={(e) =>
 										handleExperienceChange(
 											experience.id,
-											'company',
+											'startDate',
 											e.target.value
 										)
 									}
@@ -88,99 +130,55 @@ export default function WorkExperienceForm({
 							</div>
 							<div>
 								<label
-									htmlFor={`position-${experience.id}`}
+									htmlFor={`endDate-${experience.id}`}
 									className='block text-sm font-medium text-gray-700'
 								>
-									Position
+									End Date
 								</label>
 								<input
-									id={`position-${experience.id}`}
-									type='text'
-									className='form-input'
-									value={experience.position}
+									id={`endDate-${experience.id}`}
+									type='date'
+									className='border border-gray-300 rounded-md p-2 w-full bg-white'
+									value={experience.endDate}
 									onChange={(e) =>
 										handleExperienceChange(
 											experience.id,
-											'position',
-											e.target.value
-										)
-									}
-								/>
-							</div>
-							<div className='grid grid-cols-2 gap-4'>
-								<div>
-									<label
-										htmlFor={`startDate-${experience.id}`}
-										className='block text-sm font-medium text-gray-700'
-									>
-										Start Date
-									</label>
-									<input
-										id={`startDate-${experience.id}`}
-										type='date'
-										className='form-input'
-										value={experience.startDate}
-										onChange={(e) =>
-											handleExperienceChange(
-												experience.id,
-												'startDate',
-												e.target.value
-											)
-										}
-									/>
-								</div>
-								<div>
-									<label
-										htmlFor={`endDate-${experience.id}`}
-										className='block text-sm font-medium text-gray-700'
-									>
-										End Date
-									</label>
-									<input
-										id={`endDate-${experience.id}`}
-										type='date'
-										className='form-input'
-										value={experience.endDate}
-										onChange={(e) =>
-											handleExperienceChange(
-												experience.id,
-												'endDate',
-												e.target.value
-											)
-										}
-									/>
-								</div>
-							</div>
-							<div>
-								<label
-									htmlFor={`description-${experience.id}`}
-									className='block text-sm font-medium text-gray-700'
-								>
-									Description
-								</label>
-								<textarea
-									id={`description-${experience.id}`}
-									className='form-input'
-									rows={3}
-									value={experience.description}
-									onChange={(e) =>
-										handleExperienceChange(
-											experience.id,
-											'description',
+											'endDate',
 											e.target.value
 										)
 									}
 								/>
 							</div>
 						</div>
-						<button
-							type='button'
-							onClick={() => handleRemoveExperience(experience.id)}
-							className='text-red-600 hover:text-red-800 ml-4'
-						>
-							Remove
-						</button>
+						<div>
+							<label
+								htmlFor={`description-${experience.id}`}
+								className='block text-sm font-medium text-gray-700'
+							>
+								Description
+							</label>
+							<textarea
+								id={`description-${experience.id}`}
+								className='border border-gray-300 rounded-md p-2 w-full bg-white'
+								rows={6}
+								value={experience.description}
+								onChange={(e) =>
+									handleExperienceChange(
+										experience.id,
+										'description',
+										e.target.value
+									)
+								}
+							/>
+						</div>
 					</div>
+					<button
+						type='button'
+						onClick={() => handleRemoveExperience(experience.id)}
+						className='self-end inline-block bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors'
+					>
+						Remove
+					</button>
 				</div>
 			))}
 		</div>
