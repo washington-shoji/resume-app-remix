@@ -15,6 +15,7 @@ import ResumeTemplateFive from '~/templates/ResumeTemplateFive';
 import ResumeTemplateSix from '~/templates/ResumeTemplateSix';
 import ResumeTemplateSeven from '~/templates/ResumeTemplateSeven';
 import type { ResumeData } from '~/types/resume.type';
+import { TEMPLATE_NAMES } from '~/constants/resume.constants';
 
 interface ResumePreviewProps {
 	data: ResumeData;
@@ -130,19 +131,19 @@ const ResumePDF = ({ data }: ResumePreviewProps) => (
 export default function ResumePreview({ data, template }: ResumePreviewProps) {
 	const getTemplateComponent = () => {
 		switch (template) {
-			case 'classic':
+			case TEMPLATE_NAMES.CLASSIC:
 				return <ResumeTemplateTwo data={data} />;
-			case 'modern':
+			case TEMPLATE_NAMES.MODERN:
 				return <ResumeTemplateThree data={data} />;
-			case 'professional':
+			case TEMPLATE_NAMES.PROFESSIONAL:
 				return <ResumeTemplateFour data={data} />;
-			case 'creative':
+			case TEMPLATE_NAMES.CREATIVE:
 				return <ResumeTemplateFive data={data} />;
-			case 'code':
+			case TEMPLATE_NAMES.CODE:
 				return <ResumeTemplateSix data={data} />;
-			case 'modern-blue':
+			case TEMPLATE_NAMES.MODERN_BLUE:
 				return <ResumeTemplateSeven data={data} />;
-			case 'minimal':
+			case TEMPLATE_NAMES.MINIMAL:
 			default:
 				return <ResumeTemplateOne data={data} />;
 		}
