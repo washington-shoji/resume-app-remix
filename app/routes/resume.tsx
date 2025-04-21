@@ -7,19 +7,21 @@ import WorkExperienceForm from '~/components/WorkExperienceForm';
 import EducationForm from '~/components/EducationForm';
 import ResumePreview from '~/components/ResumePreview';
 import ExecutiveSummary from '~/components/ExecutiveSummary';
+import { mockResumeData } from '~/data/mockResume';
 
 export default function ResumeBuilder() {
+	const [data] = useState<ResumeData>(mockResumeData);
 	const [resumeData, setResumeData] = useState<ResumeData>({
 		personalInfo: {
-			firstName: '',
-			lastName: '',
-			professionalTitle: '',
+			firstName: data.personalInfo.firstName,
+			lastName: data.personalInfo.lastName,
+			professionalTitle: data.personalInfo.professionalTitle,
 		},
-		contactInfo: [],
-		skills: [],
-		workExperience: [],
-		education: [],
-		summary: '',
+		summary: data.summary || '',
+		contactInfo: data.contactInfo || [],
+		skills: data.skills || [],
+		workExperience: data.workExperience || [],
+		education: data.education || [],
 	});
 
 	const url = 'http://localhost:3003/resumes';
