@@ -7,43 +7,18 @@ import {
 	StyleSheet,
 } from '@react-pdf/renderer';
 import ClientComponentOnly from './ClientComponentOnly';
-
-interface ResumeData {
-	personalInfo: {
-		[key: string]: string;
-	};
-	contactInfo: Array<{
-		id: string;
-		label: string;
-		value: string;
-	}>;
-	skills: Array<{
-		id: string;
-		name: string;
-		level: string;
-	}>;
-	workExperience: Array<{
-		id: string;
-		company: string;
-		position: string;
-		startDate: string;
-		endDate: string;
-		description: string;
-	}>;
-	education: Array<{
-		id: string;
-		institution: string;
-		degree: string;
-		field: string;
-		startDate: string;
-		endDate: string;
-		description: string;
-	}>;
-	summary: string;
-}
+import ResumeTemplateOne from '~/templates/ResumeTemplateOne';
+import ResumeTemplateTwo from '~/templates/ResumeTemplateTwo';
+import ResumeTemplateThree from '~/templates/ResumeTemplateThree';
+import ResumeTemplateFour from '~/templates/ResumeTemplateFour';
+import ResumeTemplateFive from '~/templates/ResumeTemplateFive';
+import ResumeTemplateSix from '~/templates/ResumeTemplateSix';
+import ResumeTemplateSeven from '~/templates/ResumeTemplateSeven';
+import type { ResumeData } from '~/types/resume.type';
 
 interface ResumePreviewProps {
 	data: ResumeData;
+	template: string;
 }
 
 const styles = StyleSheet.create({
@@ -83,14 +58,13 @@ const ResumePDF = ({ data }: ResumePreviewProps) => (
 			{/* Personal Information */}
 			<View style={styles.section}>
 				<Text style={styles.heading}>
-					{data.personalInfo.name || 'Your Name'}
+					{data.personalInfo.firstName} {data.personalInfo.lastName}
 				</Text>
-				<Text style={styles.text}>
-					{data.personalInfo.email || 'email@example.com'}
-				</Text>
-				<Text style={styles.text}>
-					{data.personalInfo.phone || 'Phone Number'}
-				</Text>
+				{data.contactInfo.map((contact) => (
+					<Text key={contact.id} style={styles.text}>
+						{contact.value}
+					</Text>
+				))}
 			</View>
 
 			{/* Executive Summary */}
@@ -153,14 +127,34 @@ const ResumePDF = ({ data }: ResumePreviewProps) => (
 	</Document>
 );
 
-export default function ResumePreview({ data }: ResumePreviewProps) {
+export default function ResumePreview({ data, template }: ResumePreviewProps) {
+	const getTemplateComponent = () => {
+		switch (template) {
+			case 'classic':
+				return <ResumeTemplateTwo data={data} />;
+			case 'modern':
+				return <ResumeTemplateThree data={data} />;
+			case 'professional':
+				return <ResumeTemplateFour data={data} />;
+			case 'creative':
+				return <ResumeTemplateFive data={data} />;
+			case 'code':
+				return <ResumeTemplateSix data={data} />;
+			case 'modern-blue':
+				return <ResumeTemplateSeven data={data} />;
+			case 'minimal':
+			default:
+				return <ResumeTemplateOne data={data} />;
+		}
+	};
+
 	return (
 		<div className='space-y-4'>
 			<div className='flex justify-between items-center'>
 				<h2 className='text-lg font-medium text-gray-900'>Resume Preview</h2>
 				<ClientComponentOnly>
 					<PDFDownloadLink
-						document={<ResumePDF data={data} />}
+						document={<ResumePDF data={data} template={template} />}
 						fileName='resume.pdf'
 						className='btn-primary'
 					>
@@ -180,99 +174,7 @@ export default function ResumePreview({ data }: ResumePreviewProps) {
 				</ClientComponentOnly>
 			</div>
 
-			<div className='bg-white p-8 rounded-lg shadow'>
-				{/* Personal Information */}
-				<div className='mb-6'>
-					<h3 className='text-2xl font-bold text-gray-900'>
-						<span className='font-bold'>
-							{data.personalInfo?.firstName || 'First Name'}
-						</span>{' '}
-						<span className='font-bold'>
-							{data.personalInfo?.lastName || 'Last Name'}
-						</span>
-					</h3>
-					{data.personalInfo.professionalTitle && (
-						<p className='text-gray-600 font-semibold'>
-							{data.personalInfo.professionalTitle}
-						</p>
-					)}
-
-					{/* Contact Info */}
-					{data.contactInfo.map((contact) => (
-						<p key={contact.id} className='text-gray-600'>
-							{contact.value}
-						</p>
-					))}
-				</div>
-
-				{/* Executive Summary */}
-				{data.summary && (
-					<div className='mb-6'>
-						<h3 className='text-xl font-semibold text-gray-900 mb-2'>
-							Executive Summary
-						</h3>
-						<p className='text-gray-700'>{data.summary}</p>
-					</div>
-				)}
-
-				{/* Skills */}
-				{data.skills.length > 0 && (
-					<div className='mb-6'>
-						<h3 className='text-xl font-semibold text-gray-900 mb-2'>Skills</h3>
-						<div className='flex flex-wrap gap-2'>
-							{data.skills.map((skill) => (
-								<span
-									key={skill.id}
-									className='bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm'
-								>
-									{skill.name} - {skill.level}
-								</span>
-							))}
-						</div>
-					</div>
-				)}
-
-				{/* Work Experience */}
-				{data.workExperience.length > 0 && (
-					<div className='mb-6'>
-						<h3 className='text-xl font-semibold text-gray-900 mb-2'>
-							Work Experience
-						</h3>
-						{data.workExperience.map((exp) => (
-							<div key={exp.id} className='mb-4'>
-								<h4 className='font-medium text-gray-900'>
-									{exp.position} at {exp.company}
-								</h4>
-								<p className='text-sm text-gray-600'>
-									{exp.startDate} - {exp.endDate}
-								</p>
-								<p className='text-gray-700 mt-2'>{exp.description}</p>
-							</div>
-						))}
-					</div>
-				)}
-
-				{/* Education */}
-				{data.education.length > 0 && (
-					<div className='mb-6'>
-						<h3 className='text-xl font-semibold text-gray-900 mb-2'>
-							Education
-						</h3>
-						{data.education.map((edu) => (
-							<div key={edu.id} className='mb-4'>
-								<h4 className='font-medium text-gray-900'>
-									{edu.degree} in {edu.field}
-								</h4>
-								<p className='text-gray-600'>{edu.institution}</p>
-								<p className='text-sm text-gray-600'>
-									{edu.startDate} - {edu.endDate}
-								</p>
-								<p className='text-gray-700 mt-2'>{edu.description}</p>
-							</div>
-						))}
-					</div>
-				)}
-			</div>
+			<div className='bg-white rounded-lg shadow'>{getTemplateComponent()}</div>
 		</div>
 	);
 }

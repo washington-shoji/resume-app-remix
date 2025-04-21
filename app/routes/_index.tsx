@@ -67,12 +67,6 @@ export default function Index() {
 				<p className='text-xl text-gray-600 mb-8'>
 					Create your professional resume in minutes
 				</p>
-				<Link
-					to='/resume'
-					className='inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
-				>
-					Start Building Your Resume
-				</Link>
 			</div>
 
 			<div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8'>
@@ -83,9 +77,15 @@ export default function Index() {
 					</div>
 					<div className='p-4 border-t bg-white'>
 						<h3 className='font-semibold text-lg'>Minimal Template</h3>
-						<p className='text-gray-600 text-sm'>
+						<p className='text-gray-600 text-sm mb-4'>
 							Clean and professional design
 						</p>
+						<Link
+							to='/resume?template=minimal'
+							className='w-full inline-block text-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
+						>
+							Use Template
+						</Link>
 					</div>
 				</div>
 
@@ -96,7 +96,15 @@ export default function Index() {
 					</div>
 					<div className='p-4 border-t bg-white'>
 						<h3 className='font-semibold text-lg'>Two Column Classic</h3>
-						<p className='text-gray-600 text-sm'>Traditional split layout</p>
+						<p className='text-gray-600 text-sm mb-4'>
+							Traditional split layout
+						</p>
+						<Link
+							to='/resume?template=classic'
+							className='w-full inline-block text-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
+						>
+							Use Template
+						</Link>
 					</div>
 				</div>
 
@@ -107,9 +115,15 @@ export default function Index() {
 					</div>
 					<div className='p-4 border-t bg-white'>
 						<h3 className='font-semibold text-lg'>Modern Sidebar</h3>
-						<p className='text-gray-600 text-sm'>
+						<p className='text-gray-600 text-sm mb-4'>
 							Bold and contemporary design
 						</p>
+						<Link
+							to='/resume?template=modern'
+							className='w-full inline-block text-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
+						>
+							Use Template
+						</Link>
 					</div>
 				</div>
 
@@ -120,9 +134,15 @@ export default function Index() {
 					</div>
 					<div className='p-4 border-t bg-white'>
 						<h3 className='font-semibold text-lg'>Professional Grid</h3>
-						<p className='text-gray-600 text-sm'>
+						<p className='text-gray-600 text-sm mb-4'>
 							Organized and structured layout
 						</p>
+						<Link
+							to='/resume?template=professional'
+							className='w-full inline-block text-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
+						>
+							Use Template
+						</Link>
 					</div>
 				</div>
 
@@ -133,9 +153,15 @@ export default function Index() {
 					</div>
 					<div className='p-4 border-t bg-white'>
 						<h3 className='font-semibold text-lg'>Creative Blue</h3>
-						<p className='text-gray-600 text-sm'>
+						<p className='text-gray-600 text-sm mb-4'>
 							Stylish and eye-catching design
 						</p>
+						<Link
+							to='/resume?template=creative'
+							className='w-full inline-block text-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
+						>
+							Use Template
+						</Link>
 					</div>
 				</div>
 
@@ -146,7 +172,13 @@ export default function Index() {
 					</div>
 					<div className='p-4 border-t bg-white'>
 						<h3 className='font-semibold text-lg'>Code Theme</h3>
-						<p className='text-gray-600 text-sm'>Perfect for developers</p>
+						<p className='text-gray-600 text-sm mb-4'>Perfect for developers</p>
+						<Link
+							to='/resume?template=code'
+							className='w-full inline-block text-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
+						>
+							Use Template
+						</Link>
 					</div>
 				</div>
 
@@ -157,9 +189,15 @@ export default function Index() {
 					</div>
 					<div className='p-4 border-t bg-white'>
 						<h3 className='font-semibold text-lg'>Modern Blue</h3>
-						<p className='text-gray-600 text-sm'>
+						<p className='text-gray-600 text-sm mb-4'>
 							Contemporary and professional
 						</p>
+						<Link
+							to='/resume?template=modern-blue'
+							className='w-full inline-block text-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
+						>
+							Use Template
+						</Link>
 					</div>
 				</div>
 			</div>

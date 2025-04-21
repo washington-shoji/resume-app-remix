@@ -1,4 +1,4 @@
-import { Form } from '@remix-run/react';
+import { Form, useSearchParams } from '@remix-run/react';
 import { useState } from 'react';
 import { ResumeData } from '../types/resume.type';
 import PersonalInfoForm from '~/components/PersonalInfoForm';
@@ -11,6 +11,8 @@ import ContactInfoForm from '~/components/ContactInfoForm';
 import { mockResumeData } from '~/data/mockResume';
 
 export default function ResumeBuilder() {
+	const [searchParams] = useSearchParams();
+	const selectedTemplate = searchParams.get('template') || 'minimal';
 	const [data] = useState<ResumeData>(mockResumeData);
 	const [resumeData, setResumeData] = useState<ResumeData>({
 		personalInfo: {
@@ -35,7 +37,7 @@ export default function ResumeBuilder() {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(resumeData),
+			body: JSON.stringify({ ...resumeData, template: selectedTemplate }),
 		});
 	};
 
@@ -101,7 +103,7 @@ export default function ResumeBuilder() {
 			</div>
 
 			<div className='bg-white shadow-lg rounded-lg p-8'>
-				<ResumePreview data={resumeData} />
+				<ResumePreview data={resumeData} template={selectedTemplate} />
 			</div>
 		</div>
 	);

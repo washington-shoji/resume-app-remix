@@ -6,82 +6,105 @@ interface Props {
 
 export default function ResumeTemplateSix({ data }: Props) {
 	return (
-		<div className='min-h-screen bg-gray-900 text-gray-300 p-8 font-mono'>
-			<div className='max-w-4xl mx-auto'>
-				{/* Header */}
-				<header className='mb-8'>
-					<h1 className='text-3xl'>
-						{data.personalInfo.firstName} {data.personalInfo.lastName} {'{'}
-					</h1>
-					<div className='ml-4 text-gray-500'>
-						{/* Professional details as comments */}
-						<div>{`// ${data.personalInfo.professionalTitle}`}</div>
+		<div className='max-w-[800px] mx-auto p-8 font-mono bg-[#1E1E1E] text-[#D4D4D4]'>
+			<div className='text-3xl text-gray-400'>
+				{data.personalInfo.firstName} {data.personalInfo.lastName} {'= {'}
+			</div>
+
+			{/* Header Section */}
+			<header className='mb-12'>
+				<div>
+					{/* Personal Info */}
+					<div className='mb-4 text-xl font-semibold'>
+						<div className='text-[#608B4E]'>
+							{'//'} {data.personalInfo.professionalTitle}
+						</div>
+					</div>
+
+					{/* Contact Info */}
+					<div className='mb-4'>
+						<div className='text-[#608B4E]'>{'// Contact Information'}</div>
+						<div className='ml-4'>contact = {'['}</div>
 						{data.contactInfo.map((contact) => (
-							<div key={contact.id}>{`// ${contact.value}`}</div>
-						))}
-					</div>
-				</header>
-
-				{/* About Section */}
-				<section className='mb-8'>
-					<div className='text-gray-400 text-lg'>About Me {'{'}</div>
-					<div className='ml-4 mb-4'>{data.summary}</div>
-					<div className='text-gray-400'>{'}'}</div>
-				</section>
-
-				{/* Education Section */}
-				<section className='mb-8'>
-					<div className='text-gray-400 text-lg'>Education {'{'}</div>
-					<div className='ml-4'>
-						{data.education.map((edu) => (
-							<div key={edu.id} className='mb-4'>
-								<div>
-									{edu.degree} ({edu.institution});
-								</div>
-								<div className='text-gray-500'>
-									{`// ${edu.startDate} - ${edu.endDate}`}
-								</div>
+							<div key={contact.id} className='ml-8'>
+								{'{'} {contact.label}: {contact.value} {'}'},
 							</div>
 						))}
+						<div className='ml-4'>{']'}</div>
 					</div>
-					<div className='text-gray-400 text-lg'>{'}'}</div>
-				</section>
+				</div>
+			</header>
 
-				{/* Work Experience Section */}
-				<section className='mb-8'>
-					<div className='text-gray-400 text-lg'>Work Experience {'{'}</div>
-					<div className='ml-4'>
-						{data.workExperience.map((work) => (
-							<div key={work.id} className='mb-6'>
-								<div className='text-gray-400 text-lg'>
-									Job Title ({work.startDate}-{work.endDate}) {'{'}
-								</div>
-								<div className='ml-4'>
-									<div>Company: {work.company};</div>
-									<div>Position: {work.position};</div>
-									<div className='text-gray-500'>{`// Responsibilities`}</div>
-									<div className='ml-4'>{work.description}</div>
-								</div>
-								<div className='text-gray-400'>{'}'}</div>
-							</div>
-						))}
-					</div>
-					<div className='text-gray-400'>{'}'}</div>
-				</section>
+			{/* Main Content */}
+			<div className='space-y-8'>
+				{/* Summary Section */}
+				{data.summary && (
+					<section>
+						<div className='text-[#608B4E]'>{'// Professional Summary'}</div>
+						<div className='ml-4 text-[#CE9178] whitespace-pre-wrap'>
+							{data.summary}
+						</div>
+					</section>
+				)}
 
 				{/* Skills Section */}
-				<section className='mb-8'>
-					<div className='text-gray-400 text-lg'>Additional Skills {'{'}</div>
-					<div className='ml-4'>
+				{data.skills.length > 0 && (
+					<section>
+						<div className='text-[#608B4E]'>{'// Technical Skills'}</div>
+						<div className='ml-4'>skills = {'['}</div>
 						{data.skills.map((skill) => (
-							<div key={skill.id}>
-								{skill.name}: {skill.level};
+							<div key={skill.id} className='ml-8'>
+								{'{'} {skill.name}: {skill.level} {'}'},
 							</div>
 						))}
-					</div>
-					<div className='text-gray-400'>{'}'}</div>
-				</section>
+						<div className='ml-4'>{']'}</div>
+					</section>
+				)}
 
+				{/* Work Experience Section */}
+				{data.workExperience.length > 0 && (
+					<section>
+						<div className='text-[#608B4E]'>{'// Work Experience'}</div>
+						<div className='ml-4'>experience = {'['}</div>
+						{data.workExperience.map((exp) => (
+							<div key={exp.id} className='ml-8 mb-4'>
+								{'{'}
+								<div className='ml-4'>position: {exp.position},</div>
+								<div className='ml-4'>company: {exp.company},</div>
+								<div className='ml-4'>
+									period: {exp.startDate} - {exp.endDate},
+								</div>
+								<div className='ml-4'>description: {exp.description}</div>
+								{'}'},
+							</div>
+						))}
+						<div className='ml-4'>{']'}</div>
+					</section>
+				)}
+
+				{/* Education Section */}
+				{data.education.length > 0 && (
+					<section>
+						<div className='text-[#608B4E]'>{'// Education'}</div>
+						<div className='ml-4'>education = {'['}</div>
+						{data.education.map((edu) => (
+							<div key={edu.id} className='ml-8 mb-4'>
+								{'{'}
+								<div className='ml-4'>degree: {edu.degree},</div>
+								<div className='ml-4'>field: {edu.field},</div>
+								<div className='ml-4'>institution: {edu.institution},</div>
+								<div className='ml-4'>
+									period: {edu.startDate} - {edu.endDate},
+								</div>
+								{edu.description && (
+									<div className='ml-4'>description: {edu.description}</div>
+								)}
+								{'}'},
+							</div>
+						))}
+						<div className='ml-4'>{']'}</div>
+					</section>
+				)}
 				<div className='text-3xl text-gray-400'>{'}'};</div>
 			</div>
 		</div>
