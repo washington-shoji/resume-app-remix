@@ -6,7 +6,7 @@ interface Props {
 
 export default function ResumeTemplateThree({ data }: Props) {
 	return (
-		<div className='max-w-[800px] mx-auto font-light'>
+		<div className='min-h-screen max-w-[800px] mx-auto font-light'>
 			<div className='grid grid-cols-1 md:grid-cols-12'>
 				{/* Left Sidebar - Dark */}
 				<div className='md:col-span-4 bg-gray-800 dark:bg-gray-900 text-white p-8 min-h-screen'>

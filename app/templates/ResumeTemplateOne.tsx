@@ -6,7 +6,7 @@ interface Props {
 
 export default function ResumeTemplateOne({ data }: Props) {
 	return (
-		<div className='max-w-[800px] mx-auto p-8 font-light'>
+		<div className='min-h-screen max-w-[800px] mx-auto p-8 font-light'>
 			{/* Header Section */}
 			<header className='mb-12'>
 				<h1 className='text-3xl tracking-wide'>

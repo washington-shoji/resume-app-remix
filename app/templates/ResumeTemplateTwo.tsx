@@ -6,7 +6,7 @@ interface Props {
 
 export default function ResumeTemplateTwo({ data }: Props) {
 	return (
-		<div className='max-w-[800px] mx-auto p-8 font-light bg-white dark:bg-gray-900'>
+		<div className='min-h-screen max-w-[800px] mx-auto p-8 font-light bg-white dark:bg-gray-900'>
 			<div className='grid grid-cols-1 md:grid-cols-12 gap-8'>
 				{/* Left Column - Main Content */}
 				<div className='md:col-span-7 space-y-8'>

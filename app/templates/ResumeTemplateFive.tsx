@@ -6,7 +6,7 @@ interface Props {
 
 export default function ResumeTemplateFive({ data }: Props) {
 	return (
-		<div className='max-w-[800px] mx-auto p-8 bg-white dark:bg-gray-900'>
+		<div className='min-h-screen max-w-[800px] mx-auto p-8 bg-white dark:bg-gray-900'>
 			{/* Header Section */}
 			<header className='mb-16'>
 				<h1 className='text-6xl font-light mb-2'>

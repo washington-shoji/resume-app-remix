@@ -4,6 +4,7 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useMatches,
 } from '@remix-run/react';
 import type { LinksFunction } from '@remix-run/node';
 
@@ -23,7 +24,19 @@ export const links: LinksFunction = () => [
 	},
 ];
 
+interface RouteHandle {
+	disableGlobalLayout?: boolean;
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
+	const matches = useMatches();
+	console.log('matches', matches);
+	const disableGlobalLayout = matches.some(
+		(match) => (match.handle as RouteHandle | undefined)?.disableGlobalLayout
+	);
+
+	console.log('disableGlobalLayout', disableGlobalLayout);
+
 	return (
 		<html lang='en'>
 			<head>
@@ -33,7 +46,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Links />
 			</head>
 			<body>
-				<RootLayout>{children}</RootLayout>
+				{disableGlobalLayout ? children : <RootLayout>{children}</RootLayout>}
 				<ScrollRestoration />
 				<Scripts />
 			</body>

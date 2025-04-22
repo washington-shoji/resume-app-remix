@@ -6,7 +6,7 @@ interface Props {
 
 export default function ResumeTemplateSix({ data }: Props) {
 	return (
-		<div className='max-w-[800px] mx-auto p-8 font-mono bg-[#1E1E1E] text-[#D4D4D4]'>
+		<div className='min-h-screen max-w-[800px] mx-auto p-8 font-mono bg-[#1E1E1E] text-[#D4D4D4]'>
 			<div className='text-3xl text-gray-400'>
 				{data.personalInfo.firstName} {data.personalInfo.lastName} {'= {'}
 			</div>
